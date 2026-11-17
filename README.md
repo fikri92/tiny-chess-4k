@@ -27,8 +27,9 @@ from the repository, no model calls.
 
 The program talks to `MAKEFUN_ENV_URL` only: `POST /game` serves the game in play, `POST /move` plays a
 move, and the loop ends when the env answers `status: "done"`. Every move derives from the position and
-its move history alone, which is what makes a trial reproducible.
+its move history alone, which is what makes a trial reproducible; nothing in the search reads a clock.
 
 ## Licence
 
-MIT, see `LICENSE`.
+MIT, see `LICENSE`. The engine is a single file so the snapshot stays inside the bounty's 8,192-byte
+cap: `main.py` is the packed entrypoint, `src.py` travels in the transcript bundle.
